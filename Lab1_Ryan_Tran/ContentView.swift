@@ -90,6 +90,19 @@ struct ContentView: View {
             
             
         }
+        
+        //Function to check if the random number is Prime
+        func checkPrime(_ number: Int) -> Bool {
+            //1 is not prime number
+            guard number > 1 else { return false}
+            
+            //if the number greater equal to 2
+            for i in 2..<number {
+                if number % i == 0 {
+                    return false
+                }
+            }
+            
 
         
         //Support nextNumber() to generate next Random number
