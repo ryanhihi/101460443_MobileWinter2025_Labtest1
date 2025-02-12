@@ -66,8 +66,10 @@ struct ContentView: View {
                             .cornerRadius(10)
                     }
                 }
+                .padding(.horizontal, 20)
+                Spacer()
             }
-            .padding()
+            
         }
         }
         
@@ -119,38 +121,38 @@ struct ContentView: View {
         }
     
     //Timer logic support
-    func startTimer() {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {
-            _ in
-            if timeRemaining > 0 {
-                timeRemaining -= 1
-            } else{//If fail to answer wrong:
-                validateIcon = "❌"
-                wrongAnswers += 1
-                attempts += 1
-                
-                if attempts == 10 {
-                    showAlert = true
-                    timer?.invalidate()
-                } else {
-                    nextNumber()
+        func startTimer() {
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {
+                _ in
+                if timeRemaining > 0 {
+                    timeRemaining -= 1
+                } else{//If fail to answer wrong:
+                    validateIcon = "❌"
+                    wrongAnswers += 1
+                    attempts += 1
+                    
+                    if attempts == 10 {
+                        showAlert = true
+                        timer?.invalidate()
+                    } else {
+                        nextNumber()
+                    }
                 }
+                
             }
-            
         }
-    }
     
-    //Function to reset game after 10 attemps
-    
-    func resetGame() {
-        correctAnswers = 0
-        wrongAnswers = 0
-        attempts = 0
-        timeRemaining = 5
-        nextNumber()
-        startTimer()
-    }
+        //Function to reset game after 10 attemps
+        
+        func resetGame() {
+            correctAnswers = 0
+            wrongAnswers = 0
+            attempts = 0
+            timeRemaining = 5
+            nextNumber()
+            startTimer()
+        }
         
     
 }
