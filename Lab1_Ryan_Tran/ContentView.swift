@@ -68,6 +68,10 @@ struct ContentView: View {
                 }
                 .padding(.horizontal, 20)
                 Spacer()
+                
+                //Display attempts left:
+                Text("Attempts left: \(10 - attempts)")
+                    .font(.headline)
             }
             
         }
