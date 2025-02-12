@@ -83,8 +83,10 @@ struct ContentView: View {
             .onAppear(perform: startTimer ) // Time will start to count when the app opens
             //Add alert shownup after 10 attempts
             .alert(isPresented: $showAlert){
-                Alert(
-                )
+                Alert(title: Text("Overall"),
+                      message: Text("Correct choice: \(correctAnswers) \nWrong choice: \(wrongAnswers)"),
+                      dismissButton: .default(Text("Ok, play again"), action: resetGame)
+                      )
             }
             
         }
