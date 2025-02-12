@@ -72,6 +72,12 @@ struct ContentView: View {
                 //Display attempts left:
                 Text("Attempts left: \(10 - attempts)")
                     .font(.headline)
+                
+                //Display time remains:
+                Text("Time remaining: \(timeRemaining)")
+                    .font(.headline)
+                    .foregroundColor(timeRemaining>1 ? .blue : .red)
+                
             }
             
         }
