@@ -79,6 +79,8 @@ struct ContentView: View {
                     .foregroundColor(timeRemaining>1 ? .blue : .red)
                 
             }
+            .padding()
+            .onAppear(perform: startTimer ) // Time will start to count when the app opens
             
         }
         }
