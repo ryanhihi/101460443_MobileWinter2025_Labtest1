@@ -69,17 +69,41 @@ struct ContentView: View {
             }
             .padding()
         }
+        
+        //Function to handle Right / Wrong anser
+        func handleAnswers (isPrime: Bool) {
+            
+            if checkPrime(randomNumber) == isPrime {
+                validateIcon = "✅"
+                correctAnswers += 1
+            } else {
+                validateIcon = "❌"
+                wrongAnswers += 1
+            }
+            
+            attempts += 1
+            if attempts == 10 {
+                showAlert = true
+            } else {
+                nextNumber()
+            }
+            
+            
+        }
+
+        
+        //Support nextNumber() to generate next Random number
+        func nextNumber() {
+            //Set up delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                validateIcon = nil
+                randomNumber = Int.random(in: 1...100)
+                timeRemaining = 5
+            }
+    }
     }
     
-    //Support nextNumber() to generate next Random number
-    func nextNumber() {
-        //Set up delay
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            validateIcon = nil
-            randomNumber = Int.random(in: 1...100)
-            timeRemaining = 5
-        }
-}
+    
 
 #Preview {
     ContentView()
