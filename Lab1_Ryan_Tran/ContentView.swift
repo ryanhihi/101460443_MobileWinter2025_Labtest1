@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         ZStack() {
             Color(.systemGray)
-                .ignoresSafeArea()
+                .ignoresSafeArea() //Ensure the color background spread entire screen
             
             VStack (spacing: 20){
                 //Tilte for explaination of the game
