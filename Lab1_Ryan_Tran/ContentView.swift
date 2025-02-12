@@ -117,6 +117,17 @@ struct ContentView: View {
                 timeRemaining = 5
             }
         }
+    
+    //Function to reset game after 10 attemps
+    
+    func resetGame() {
+        correctAnswers = 0
+        wrongAnswers = 0
+        attempts = 0
+        timeRemaining = 5
+        nextNumber()
+        startTimer()
+    }
         
     
 }
