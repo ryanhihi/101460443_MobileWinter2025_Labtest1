@@ -42,10 +42,43 @@ struct ContentView: View {
                         .font(.system(size: 50))
                 }
                 Spacer()
+                
+                //Button Prime or Not Prime
+                
+                HStack(spacing:30){
+                    //Prime button with the handleAnser function:
+                    Button(action: {handleAnswers(isPrime: true)}) {
+                        Text("Prime")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    
+                    //Not prime button with handleAnswer function:
+                    Button(action: {handleAnswers(isPrime: false)}) {
+                        Text("Not Prime")
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .background(Color.orange)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                }
             }
             .padding()
         }
     }
+    
+    //Support nextNumber() to generate next Random number
+    func nextNumber() {
+        //Set up delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            validateIcon = nil
+            randomNumber = Int.random(in: 1...100)
+            timeRemaining = 5
+        }
 }
 
 #Preview {
