@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     //Declare variables
-    @State private var randomNumber = Int.random(in: 1...100)
+    @State private var randomNumber = Int.random(in: 1...100) //generate number randomly from 1 to 100
     @State private var correctAnswers = 0
     @State private var wrongAnswers = 0
     @State private var attempts = 0
@@ -147,8 +147,8 @@ struct ContentView: View {
                 if timeRemaining > 0 {
                     timeRemaining -= 1
                 } else{//If fail to answer wrong:
-                    validateIcon = "❌"
-                    wrongAnswers += 1
+                    validateIcon = "❌" //Show the validation wrong when time's up
+                    wrongAnswers += 1 // When the time's up wrong answer counted 1
                     attempts += 1
                     
                     if attempts == 10 {
