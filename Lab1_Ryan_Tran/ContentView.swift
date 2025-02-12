@@ -69,6 +69,7 @@ struct ContentView: View {
             }
             .padding()
         }
+        }
         
         //Function to handle Right / Wrong anser
         func handleAnswers (isPrime: Bool) {
@@ -102,8 +103,10 @@ struct ContentView: View {
                     return false
                 }
             }
-            
-
+            return true
+        }
+        
+        
         
         //Support nextNumber() to generate next Random number
         func nextNumber() {
@@ -113,9 +116,10 @@ struct ContentView: View {
                 randomNumber = Int.random(in: 1...100)
                 timeRemaining = 5
             }
-    }
-    }
+        }
+        
     
+}
     
 
 #Preview {
