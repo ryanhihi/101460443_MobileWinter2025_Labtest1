@@ -20,14 +20,23 @@ struct ContentView: View {
     @State private var validateIcon: String? = nil
     @State private var timeRemaining = 5
     var body: some View {
-        VStack {
-            ZStack() {
-                Color(.systemGray)
-                    .ignoresSafeArea()
+        ZStack() {
+            Color(.systemGray)
+                .ignoresSafeArea()
+            
+            VStack (spacing: 20){
+                
+                Text("Select if the number is \"Prime\" or \"Not Prime\"")
+                    .font(.title)
+                Spacer()
+                
+                Text("\(randomNumber)")
+                    .font(.system(size: 60))
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
             }
+            .padding()
         }
-        .padding()
     }
 }
 
